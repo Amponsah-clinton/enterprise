@@ -1,0 +1,40 @@
+{% include 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    h5{
+        font-size: 25px;
+        font-weight: 700;
+    }
+a{
+    text-decoration: none !important;;
+}
+
+
+</style>
+
+
+
+<div class="container mt-4">
+    <h2 style="padding-bottom: 10px;">Add Products</h2>
+
+    <p style="padding-bottom: 20px;"> <a style="font-size: 20px; font-weight: 700;" href="{% url 'new_product' %}">New Product</a>  |||
+        <a style="font-size: 20px; font-weight: 700;" href="{% url 'product_list' %}">All Product</a>
+    
+    
+    </p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Save Product</button>
+    </form>
+</div>
+
+
+
+
+{% endblock %}
+
+

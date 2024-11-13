@@ -1,0 +1,47 @@
+{% include 'base.html' %}
+{% block content %}
+
+<div class="container mt-4">
+    <h2>Add New Employee</h2>
+    <form method="post">
+        {% csrf_token %}
+
+        <!-- Name and Telephone Side by Side -->
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                {{ form.name.label_tag }} {{ form.name }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ form.telephone.label_tag }} {{ form.telephone }}
+            </div>
+        </div>
+
+        <!-- Email and Date of Birth Side by Side -->
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                {{ form.email.label_tag }} {{ form.email }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ form.date_of_birth.label_tag }} {{ form.date_of_birth }}
+            </div>
+        </div>
+
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                {{ form.emergency_contact.label_tag }} {{ form.emergency_contact }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ form.ghana_card_number.label_tag }} {{ form.ghana_card_number }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {{ form.address.label_tag }} {{ form.address }}
+        </div>
+        <button type="submit" class="btn btn-primary">Save Employee</button>
+        <a href="{% url 'employee_list' %}" class="btn btn-secondary">Back to List</a>
+    </form>
+</div>
+
+{% endblock %}

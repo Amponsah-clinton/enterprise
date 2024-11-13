@@ -1,0 +1,35 @@
+{% include 'base.html' %}
+{% block content %}
+
+<div class="container mt-4">
+    <h2>Employee List</h2>
+    <a href="{% url 'add_employee' %}" class="btn btn-success mb-2">Add New Employee</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Telephone</th>
+                <th>Email</th>
+                <th>Date of Birth</th>
+                <th>Address</th>
+                <th>Emergency Contact</th>
+                <th>Ghana Card Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in employees %}
+            <tr>
+                <td>{{ employee.name }}</td>
+                <td>{{ employee.telephone }}</td>
+                <td>{{ employee.email|default:"N/A" }}</td>
+                <td>{{ employee.date_of_birth }}</td>
+                <td>{{ employee.address }}</td>
+                <td>{{ employee.emergency_contact }}</td>
+                <td>{{ employee.ghana_card_number }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

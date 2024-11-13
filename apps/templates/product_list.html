@@ -1,0 +1,50 @@
+{% include 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    h5{
+        font-size: 25px;
+        font-weight: 700;
+    }
+a{
+    text-decoration: none !important;;
+}
+
+
+</style>
+
+
+
+<div class="container mt-4">
+    <h2>Product List</h2>
+    <table class="table table-hover  table-striped ">
+        <thead>
+            <tr>
+                <th scope="col">Category</th>
+                <th scope="col">Price</th>
+                <th scope="col">Other Info</th>
+                <th scope="col">Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+                <tr>
+                    <td>{{ product.category.name }}</td>
+                    <td>${{ product.price }}</td>
+                    <td>{{ product.other_info }}</td>
+                    <td>{{ product.quantity }}</td>
+                    
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+
+
+{% endblock %}
+
+

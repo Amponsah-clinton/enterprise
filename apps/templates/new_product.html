@@ -1,0 +1,30 @@
+{% include 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    h5{
+        font-size: 25px;
+        font-weight: 700;
+    }
+a{
+    text-decoration: none !important;;
+}
+
+
+</style>
+
+<div class="container mt-4">
+    <h2 style="padding-bottom: 20px;">Create New Product</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Add Product</button>
+    </form>
+</div>
+
+
+{% endblock %}
+
+
